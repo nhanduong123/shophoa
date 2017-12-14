@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Shophoa24h.cf</title>
+<!-- TemplateEndEditable -->
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bootstrap3/js/w3.js"></script>
+  <script src="bootstrap3/js/jssor.slider.min.js"></script>
+  	
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+	 
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+	ul#crop li:hover ul#down {display: block;}
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+  <!-- TemplateBeginEditable name="head" -->
+  <!-- TemplateEndEditable -->
+</head>
+<body>
+<div class="jumbotron">
+  <div class="container text-center">
+  	<img src="image/banner.jpg" width="100%">
+  </div>
+</div>
+<!-- TemplateBeginEditable name="NoiDung" -->
+
+
+
+<!-- TemplateEndEditable -->
+<footer class="container-fluid text-center">
+  <p>Shop Hoa 24h</p>  
+  <p>Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP.HCM</p>
+  <p>Liên Hệ: 01234567890</p>
+</footer>
+
+</body>
+</html>
