@@ -1,3 +1,4 @@
+4
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
   	<img src="image/banner.jpg" width="100%">
   </div>
 </div>
-</div>"
+"</div>
 <nav class="navbar navbar-inverse" id="mynav">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -100,6 +101,7 @@
 </nav>
 <!--SLIDE SHOW -->
 <div style="margin:0;padding:0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background-color: #FFF;">
+
 
     <!-- #region Jssor Slider Begin -->
     <!-- Generator: Jssor Slider Maker -->
@@ -205,20 +207,17 @@ $data = null;
 include "config.php";
 include "autoload.php";
 $loai = new db();
-$query="select * from donhang";
-$data=$loai->queryXemdonhang($query);
+$ma=$_GET['ma'];
+$query="select * from chitietdonhang where madh=".$ma;
+$data=$loai->queryXemctdonhang($query);
 ?>
-<table align="center" border="1" width="650">
+<table align="center" border="1" width="600">
     <tr align="center"> 
-        <td>Mã Hóa Đơn</td>
-        <td>Mã Thành viên</td>
-        <td>Tên Người Nhận</td>
-        <td>Số Điện Thoại</td>
-        <td>Email</td>
-        <td>Địa Chỉ</td>
-        <td>Ngày Đặt</td>
-        <td>Trạng Thái</td>
-        <td>Xem Chi Tiết Đơn Hàng</td>
+        <td>Mã Đơn Hàng</td>
+        <td>Mã Sản Phẩm</td>
+        <td>Số Lượng</td>
+        <td>Giá Tiền</td>
+        <td>Mô Tả</td>
     </tr>
     <?php 
         foreach($data as $key=>$row)
@@ -229,29 +228,19 @@ $data=$loai->queryXemdonhang($query);
                     <?php echo $row['madh']; ?>
                 </td>
                 <td>
-                    <?php echo $row['matv']; ?>
+                    <?php echo $row['masp']; ?>
                 </td>
                 <td>
-                    <?php echo $row['tennguoinhan']; ?>
+                    <?php echo $row['soluong']; ?>
                 </td>
                 <td>
-                    <?php echo $row['sdt']; ?>
+                    <?php echo $row['giatien']; ?>
                 </td>
                 <td>
-                    <?php echo $row['email']; ?>
+                    <?php echo $row['mota']; ?>
                 </td>
-                <td>
-                    <?php echo $row['diachi']; ?>
-                </td>
-                <td>
-                    <?php echo $row['ngaydat']; ?>
-                </td>
-                <td>
-                    <?php echo $row['trangthai']; ?>
-                </td>
-                <td>
-                    <a href="chitietddh.php?ma=<?php echo $row['madh']?>">ChiTietDonHang</a>
-                </td>
+                
+                
             </tr>
     <?php } ?>
 </table>

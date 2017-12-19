@@ -36,10 +36,12 @@
   <!-- InstanceEndEditable -->
 </head>
 <body>
+<div class="navbar-collapse>
 <div class="jumbotron">
   <div class="container text-center">
   	<img src="image/banner.jpg" width="100%">
   </div>
+</div>
 </div>
 <!-- InstanceBeginEditable name="NoiDung" -->
 <?php 
@@ -49,10 +51,10 @@
 <div class="container">
       <form class="form-dk" action="dondathang.php" ng-app="donhangapp" method="post">
         <h2 class="form-signin-heading">Đặt Hàng</h2>
-        <label for="tsp" class="sr-only">Địa chỉ</label>
-         <input type="text" id="dc" class="form-control" name="diachi"  placeholder="Địa chỉ nhận hàng" required autofocus>
         <label for="ten" class="sr-only">Tên người nhận</label>
         <input type="text" id="ten" class="form-control" name="tennhan" placeholder="Tên Người nhận"  ng-minlength="6" required>
+        <label for="tsp" class="sr-only">Địa chỉ</label>
+         <input type="text" id="dc" class="form-control" name="diachi"  placeholder="Địa chỉ nhận hàng" required autofocus>
         <label for="email" class="sr-only">Địa chỉ email</label>
         <input id="email" class="form-control" name="email"  type="email" placeholder="Địa chị email" required>
         <label for="sdt" class="sr-only">Số điện thoại</label>
@@ -75,13 +77,14 @@ if (isset($_POST["email"])) $mail=$_POST["email"];
 if (isset($_POST["sdt"])) $dt=$_POST["sdt"];
 if (isset($_POST["mota"])) $mota=$_POST["mota"];
 if(isset($_SESSION['idthanhvien'])) $idthanhvien=$_SESSION['idthanhvien'];
+if(isset($_SESSION['tongtien'])) $stien=$_SESSION['tongtien'];
 //$ngay='CURRENT_TIMESTAMP';
 //$trangthai=1;
 $tv= new db();
 
-$sql = "INSERT INTO `donhang` (`matv`, `tennguoinhan`, `sdt`, `diachi`, `email`, `ngaydat`, `trangthai`) 
-			VALUES (:idthanhvien, :ten, :sdt, :diachi, :email,CURRENT_TIMESTAMP,'1')";
-$tv->queryadddonhang($sql,$idthanhvien,$ten,$dt,$dc,$mail);
+$sql = "INSERT INTO `donhang` (`matv`, `tennguoinhan`, `sdt`, `diachi`, `email`, `ngaydat`, `tongtien`,`trangthai`) 
+			VALUES (:idthanhvien, :ten, :sdt, :diachi, :email,CURRENT_TIMESTAMP,:tongtien,'1')";
+$tv->queryadddonhang($sql,$idthanhvien,$ten,$dt,$dc,$mail,$stien);
 //var_dump($tv);
 if(isset($tv))
 {	
@@ -95,7 +98,7 @@ if(isset($tv))
 	$spdat=$_SESSION['giohang'][$i]["Masp"];
 	$sld=$_SESSION['giohang'][$i]["Soluong"];
 	$xl=new db();
-	$sql1="INSERT INTO `chitietdonhang` (`madh`, `masp`, `soluong`, `tongtien`, `mota`) 
+	$sql1="INSERT INTO `chitietdonhang` (`madh`, `masp`, `soluong`, `giatien`, `mota`) 
 				VALUES ('$idlay', '$spdat', '$sld', '$gia', '$mota')";
 	$xl->query($sql1);
 	//unset();

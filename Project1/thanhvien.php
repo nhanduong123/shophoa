@@ -48,7 +48,7 @@
   <div class="container-fluid text-center">
   	<img src="image/banner.jpg" width="100%">
   </div>
-</div>"
+</div>
  <?php include "menuthanhvien.php"; ?>
 <!--SLIDE SHOW -->
 	<?php include "slideshow.php";?>

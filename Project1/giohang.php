@@ -36,10 +36,12 @@
   <!-- InstanceEndEditable -->
 </head>
 <body>
+<div class="navbar-collapse>
 <div class="jumbotron">
   <div class="container text-center">
   	<img src="image/banner.jpg" width="100%">
   </div>
+</div>
 </div>
 <!-- InstanceBeginEditable name="NoiDung" -->
 <?php 
@@ -53,6 +55,12 @@ if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])){
 $data1=$_SESSION['giohang'];
 //print_r($data1);
 ?> <!-- ttieu de-->
+<script>
+function select()
+{
+	
+}
+</script>
 <div class="page-block page-block-bottom cream-bg grid-container">
 	<div class="content-holder grid-100">
     
@@ -108,8 +116,12 @@ foreach($data1 as $values )
             </div>
             
             <div class="well-box-middle well-border-gradient align-center grid-10 tablet-grid-10">
-            <input type="text" name="product-quantity[]" 
-            class="text-input product-quantity dark-color light-bg" value="<?php echo $values['Soluong'];?>" onclick="$(this).select()" />
+            <form method="get" action="updatesoluonggiohang.php">
+            <input type="text" name="soluong"
+            class="text-input product-quantity dark-color light-bg" value="<?php echo $t;?> "/>
+            <input name="id" value="<?php echo $key;?>" class="hidden"/>
+           	<input type="submit" name="ok" class="text-input product-quantity dark-color light-bg" value="Sửa">
+            </form>
             </div>
             <div class="well-box-middle well-border-gradient align-center grid-15 tablet-grid-15 middle-color">
             <strong><?php $t2=$t1; echo number_format($t2); ?></strong>
@@ -119,16 +131,16 @@ foreach($data1 as $values )
 			?></strong>
             </div>
             <a class="cart-product-remove circle-button dark-bg active-bg-hover hide-on-desktop" 
-            target="_blank" onClick="<?php unset($row['Masp']);?>"><span class="cancel"></span></a>
+            href="xoaspgiohang.php?xoagiohang=<?php echo $key ?>"><span class="cancel"></span></a>
             </div>
  <?php //} 
 		}
 	}
 	$_SESSION['tongtien']=$tongtien;
-	var_dump($_SESSION['tongtien']);
+	//var_dump($_SESSION['tongtien']);
 	}else
 	{
-		echo "bạn chưa đặt sản phẩm";
+		?> <p class="container-fluid text-center"><?php echo "Giỏ Hàng Rỗng! Bạn Nên Mua Hàng Rồi Quay Lại Trang Này"; ?></p> <?php
 	}
 	
 		?>
@@ -136,7 +148,7 @@ foreach($data1 as $values )
 <div class="well-shadow well-box last light-bg align-right">
 <dl class="cart-total clearfix">
 <dt class="uppercase dark-color">Thành Tiền:</dt>
-<dd class="active-color"><?php echo number_format($tongtien);?> VND</dd>
+<dd class="active-color"><?php echo @number_format($tongtien);?> VND</dd>
 </dl>
 <a href="dondathang.php" class="button-normal button-with-icon light-color active-gradient dark-gradient-hover">
 Đặt Hàng <span><i class="glyphicon glyphicon-shopping-cart""></i></span>
@@ -146,7 +158,6 @@ foreach($data1 as $values )
     <!-- END -->
 
 </div>
-
 <!-- InstanceEndEditable -->
 <footer class="container-fluid text-center">
   <p>Shop Hoa 24h</p>  

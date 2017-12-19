@@ -24,7 +24,7 @@
 		{
 			$count= count($_SESSION['giohang']);
 			$flag=false;
-			for($i=1;$i<$count;$i++)
+			for($i=0;$i<$count;$i++)
 			{
 				if($_SESSION['giohang'][$i]['Masp']==$id)
 				{
@@ -110,7 +110,15 @@
 					<strong class="active-color">
 					<i class="glyphicon glyphicon-shopping-cart">&nbsp;</i>
 							<?php if(isset($_SESSION['giohang']))
-							{ echo count($_SESSION['giohang']); }
+							{ 
+								//for($i =0; $i< count($_SESSION['giohang']); $i++)
+								//{
+									//if($_SESSION['giohang'][$i]['Masp']!=null)
+									{
+										echo count($_SESSION['giohang']); 
+									}
+								//}
+							}
 							else echo 0;
 							//echo $addcart->getNumItem();
 							//echo $addcart->show();

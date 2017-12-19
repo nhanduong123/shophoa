@@ -245,14 +245,15 @@ class db
 		$this->data = $stm->fetchAll(PDO::FETCH_ASSOC);
 		return $this->data;	
 	}*/
-	public function queryadddonhang($sql,$idthanhvien,$ten,$sdt,$diachi,$email)
+	public function queryadddonhang($sql,$idthanhvien,$ten,$sdt,$diachi,$email,$tongtien)
 	{
 		$stm = $this->conn->prepare($sql);
 		$arr = array (":idthanhvien"=>$idthanhvien, 
 						":ten"=>$ten, 
 						":sdt"=>$sdt, 
 						":diachi"=>$diachi,
-						":email"=>$email);
+						":email"=>$email,
+						":tongtien"=>$tongtien);
 		$stm->execute($arr);
 		$this->data = $stm->fetchAll(PDO::FETCH_ASSOC);
 		return $this->data;	
